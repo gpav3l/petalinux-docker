@@ -56,6 +56,11 @@ RUN apt-get update &&  DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
   bc \
   u-boot-tools \
   python \
+  nano \
+  tree \
+  mc \
+  mtools \
+  xfsprogs \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -77,7 +82,7 @@ RUN adduser --disabled-password --gecos '' vivado && \
   echo "vivado ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 COPY accept-eula.sh ${PETA_RUN_FILE} /
-
+COPY ./image_builder.sh /usr/local/bin/image_builder.sh
 # run the install
 RUN chmod a+rx /${PETA_RUN_FILE} && \
   chmod a+rx /accept-eula.sh && \
