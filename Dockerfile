@@ -61,6 +61,7 @@ RUN apt-get update &&  DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
   mc \
   mtools \
   xfsprogs \
+  dosfstools \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
